@@ -1,0 +1,131 @@
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let movie of movies | slice:0:6">
+    <div class="container-FLUID">
+      <a [routerLink]="['/movie', movie.externalId ]">
+        <img src="{{movie.backdropUrl}}" class="carousel-img img-fluid" alt="{{movie.title}}">
+      </a>
+    </div>
+    <div class="bottom-bar">
+      <div class="title-container">
+        <span>{{movie.title}}</span>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<div class="container-fluid div-first-color">
+  <div class="row move-up">
+    <div class="col-2" *ngFor="let m of movies | slice:6:12">
+      <div class="feature-box main-img ">
+        <a [routerLink]="['/movie', m.externalId ]">
+          <img src="{{m.posterUrl}}" class="mini-movie-img" alt="{{m.title}}">
+        </a>
+        <h6 class="heading-tertiary u-margin-bottom-small">{{m.title}}</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-5 div-second-color">
+  <div class="row ">
+    <div class="col-sm">
+      <ngb-tabset #mtab="ngbTabset" [activeId]="mtab" (tabChange)="selectedTab($event)">
+        <ngb-tab title="IN THEATERS" id="theatertab">
+          <ng-template ngbTabContent>
+            <div class="row mt-5">
+              <div class="col-2" *ngFor="let m of tabMovies | slice : 0 : 12">
+                <div class="feature-box main-img ">
+                  <a [routerLink]="['/movie', m.externalId ]">
+                    <img src="{{m.posterUrl}}" class="mini-movie-img" alt="{{m.title}}">
+                  </a>
+                  <h6 class="heading-tertiary u-margin-bottom-small">{{m.title}}</h6>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="mx-auto" style="width: 200px;">
+              <a name="" id="" [routerLink]="['/movies/nowplaying']"class="btn btn-primary" (click)="showMore(mtab)" role="button">Show More</a>
+            </div>
+          </ng-template>
+        </ngb-tab>
+
+
+        <ngb-tab title="COMING SOON" id="comingSoontab">
+          <ng-template ngbTabContent>
+            <div class="row mt-5">
+              <div class="col-2" *ngFor="let m of tabMovies | slice : 0 : 12">
+                <div class="feature-box main-img ">
+                  <a [routerLink]="['/movie', m.externalId ]">
+                    <img src="{{m.posterUrl}}" class="mini-movie-img" alt="{{m.title}}">
+                  </a>
+                  <h6 class="heading-tertiary u-margin-bottom-small">{{m.title}}</h6>
+                </div>
+              </div>
+            </div>
+            <div class="mx-auto" style="width: 200px;">
+              <a name="" id="" [routerLink]="['/movies/upcoming']"class="btn btn-primary" (click)="showMore(mtab)" role="button">Show More</a>
+            </div>
+          </ng-template>
+        </ngb-tab>
+
+
+        <ngb-tab title="NEW TRAILERS" id="newTrailerstab">
+          <ng-template ngbTabContent>
+            <div class="row mt-5">
+              <div class="col-2" *ngFor="let m of tabMovies | slice : 0 : 12">
+                <div class="feature-box main-img ">
+                  <a [routerLink]="['/movie', m.externalId ]">
+                    <img src="{{m.posterUrl}}" class="mini-movie-img" alt="{{m.title}}">
+                  </a>
+                  <h6 class="heading-tertiary u-margin-bottom-small">{{m.title}}</h6>
+                </div>
+              </div>
+            </div>
+            <div class="mx-auto" style="width: 200px;">
+              <a name="" id="" [routerLink]="['/movies/popular']" class="btn btn-primary" (click)="showMore(mtab)" role="button">Show More</a>
+            </div>
+          </ng-template>
+        </ngb-tab>
+
+
+        <ngb-tab title="TOP RATED" id="topRatedtab">
+          <ng-template ngbTabContent>
+            <div class="row mt-5">
+              <div class="col-2" *ngFor="let m of tabMovies | slice : 0 : 12">
+                <div class="feature-box main-img ">
+                  <a [routerLink]="['/movie', m.externalId ]">
+                    <img src="{{m.posterUrl}}" class="mini-movie-img" alt="{{m.title}}">
+                  </a>
+                  <h6 class="heading-tertiary u-margin-bottom-small">{{m.title}}</h6>
+                </div>
+              </div>
+            </div>
+            <div class="mx-auto" style="width: 200px;">
+              <a name="" id="" [routerLink]="['/movies/toprated']"class="btn btn-primary" (click)="showMore(mtab)" role="button">Show More</a>
+            </div>
+          </ng-template>
+        </ngb-tab>
+
+
+        <ngb-tab title="MOST POPULAR" id="populartab">
+          <ng-template ngbTabContent>
+            <div class="row mt-5">
+              <div class="col-2" *ngFor="let m of tabMovies | slice : 0 : 12">
+                <div class="feature-box main-img ">
+                  <a [routerLink]="['/movie', m.externalId ]">
+                    <img src="{{m.posterUrl}}" class="mini-movie-img" alt="{{m.title}}">
+                  </a>
+                  <h6 class="heading-tertiary u-margin-bottom-small">{{m.title}}</h6>
+                </div>
+              </div>
+            </div>
+            <div class="mx-auto" style="width: 200px;">
+              <a name="" id="" [routerLink]="['/movies/popular']" class="btn btn-primary" (click)="showMore(mtab)" role="button">Show More</a>
+            </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+  </div>

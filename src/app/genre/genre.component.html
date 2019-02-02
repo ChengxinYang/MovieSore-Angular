@@ -1,0 +1,5 @@
+<ul class="limheight" style="list-style-type: none; display:inline-block;">
+  <li *ngFor="let genre of genres">
+    <a class="dropdown-item" [routerLink]="['/movies/genre', genre.id ]">{{genre.name}}</a>
+  </li>
+</ul>

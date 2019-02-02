@@ -1,0 +1,90 @@
+<header>
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand main-nav-link" href="">Movie blast</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item mr-3">
+                    <a class="btn mr-5" [routerLink]="['/cast']" style="color: white;">Casts</a>
+                </li>
+
+                <li class="nav-item dropdown" ngbDropdown ngdr>
+                    <a class="btn mr-5" style="color: white;" id="dropdownId" ngbDropdownToggle data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Movies</a>
+                    <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownId">
+                        <ul class="limheight" style="list-style-type: none; display:inline-block;">
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['/movies/popular']">Popular</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['/movies/upcoming']">Upcoming</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['/movies/nowplaying']">Now Playing</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['/movies/toprated']">Top Rated</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['/movies']">All Movies</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item mr-3">
+                    <div ngbDropdown>
+                        <a class="btn mr-5" style="color: white;" ngbDropdownToggle>Genres</a>
+                        <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                            <app-genre></app-genre>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item mr-3">
+                    <div *ngIf="authService.isLogIn()" ngbDropdown>
+                        <a class="btn mr-5" style="color: white;" ngbDropdownToggle>Hello,{{authService.getUserFullName()}}</a>
+                        <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                            <ul style="list-style-type: none; display:inline-block;">
+                                <li>
+                                    <a class="dropdown-item" style="color: white;" [routerLink]="['/mymovies']">My Movies</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a *ngIf="!authService.isLogIn()" class="btn mr-5 btn-outline-primary" style="color: white;"
+                        [routerLink]="['/login']">Login</a>
+                </li>
+
+                <li>
+                    <a *ngIf="authService.isLogIn()" class="btn btn-primary mr-5" style="color: white;" [routerLink]="['/login']"
+                        (click)="authService.logout()">LogOut</a>
+                </li>
+
+
+
+                <li>
+                    <a *ngIf="!authService.isLogIn()" class="btn btn-primary mr-5" style="color: white;" [routerLink]="['/signup']">Signup</a>
+                </li>
+
+                <li>
+                    <form>
+                        <input class="search-input" type="text" aria-label="Search">
+                        <i class="fas fa-search search-icon"></i>
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+
+            </ul>
+        </div>
+
+    </nav>
+</header>

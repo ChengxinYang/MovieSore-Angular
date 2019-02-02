@@ -1,0 +1,12 @@
+<form (ngSubmit) = "login()" #loginForm = "ngForm">
+  <div class="form-group">
+    <label for="exampleInputEmail1" style="color: aliceblue">Email address</label>
+    <input type="email" id="Email" class="form-control" name="username" [(ngModel)]="userLogin.username" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted"  style="color: aliceblue">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" style="color: aliceblue">Password</label>
+    <input type="password" class="form-control" id="Password" name="password" [(ngModel)]="userLogin.password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
